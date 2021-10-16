@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  mysql-graphql-example:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "123456789"
+      MYSQL_ROOT_PASSWORD: "123456789"
+      MYSQL_DATABASE: "graphql-example"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./storage:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
